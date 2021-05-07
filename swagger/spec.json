@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "prices microservice",
+    "title": "price microservice",
     "description": "Marcoo microservices",
     "version": "0.0.1"
   },
@@ -54,6 +54,105 @@
           }
         }
       }
+    },
+    "/v1/prices": {
+      "get": {
+        "summary": "Your GET endpoint",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "description": "",
+                  "minItems": 1,
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "_id",
+                      "id_product",
+                      "id_supermarket",
+                      "price",
+                      "date"
+                    ],
+                    "properties": {
+                      "_id": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "id_product": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "id_supermarket": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "price": {
+                        "type": "number"
+                      },
+                      "date": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    }
+                  },
+                  "x-examples": {
+                    "example-1": [
+                      {
+                        "_id": "6095a5064e3ef6461c0b0f91",
+                        "id_product": "609330b0642b8120248dd5fc",
+                        "id_supermarket": "60845d5468c33834de710e19",
+                        "price": 2.94,
+                        "date": "1620248400000"
+                      },
+                      {
+                        "_id": "6095a5064e3ef6461c0b0f91",
+                        "id_product": "609330b0642b8120248dd5fc",
+                        "id_supermarket": "60845d5468c33834de710e19",
+                        "price": 2.94,
+                        "date": "1620248400000"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequestError"
+          }
+        },
+        "operationId": "get-prices",
+        "parameters": [],
+        "description": "",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "description": "",
+                "minItems": 1,
+                "uniqueItems": true,
+                "x-examples": {
+                  "example-1": [
+                    "1",
+                    "2",
+                    "3"
+                  ]
+                },
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": []
     }
   },
   "components": {
