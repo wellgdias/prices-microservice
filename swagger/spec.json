@@ -65,56 +65,71 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
                   "description": "",
-                  "minItems": 1,
-                  "uniqueItems": true,
-                  "items": {
-                    "type": "object",
-                    "required": [
-                      "_id",
-                      "id_product",
-                      "id_supermarket",
-                      "price",
-                      "date"
-                    ],
-                    "properties": {
-                      "_id": {
-                        "type": "string",
-                        "minLength": 1
-                      },
-                      "id_product": {
-                        "type": "string",
-                        "minLength": 1
-                      },
-                      "id_supermarket": {
-                        "type": "string",
-                        "minLength": 1
-                      },
-                      "price": {
-                        "type": "number"
-                      },
-                      "date": {
-                        "type": "string",
-                        "minLength": 1
+                  "type": "object",
+                  "x-examples": {
+                    "example-1": {
+                      "data": [
+                        {
+                          "_id": "string",
+                          "id_product": "string",
+                          "id_supermarket": "string",
+                          "price": 0,
+                          "date": "string"
+                        }
+                      ]
+                    }
+                  },
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "uniqueItems": true,
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "_id": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "id_product": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "id_supermarket": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "price": {
+                            "type": "number"
+                          },
+                          "date": {
+                            "type": "string",
+                            "minLength": 1
+                          }
+                        },
+                        "required": [
+                          "_id",
+                          "id_product",
+                          "id_supermarket",
+                          "price",
+                          "date"
+                        ]
                       }
                     }
                   },
-                  "x-examples": {
-                    "example-1": [
+                  "required": [
+                    "data"
+                  ]
+                },
+                "examples": {
+                  "example-1": {
+                    "value": [
                       {
-                        "_id": "6095a5064e3ef6461c0b0f91",
-                        "id_product": "609330b0642b8120248dd5fc",
-                        "id_supermarket": "60845d5468c33834de710e19",
-                        "price": 2.94,
-                        "date": "1620248400000"
-                      },
-                      {
-                        "_id": "6095a5064e3ef6461c0b0f91",
-                        "id_product": "609330b0642b8120248dd5fc",
-                        "id_supermarket": "60845d5468c33834de710e19",
-                        "price": 2.94,
-                        "date": "1620248400000"
+                        "_id": "string",
+                        "id_product": "string",
+                        "id_supermarket": "string",
+                        "price": 0,
+                        "date": "string"
                       }
                     ]
                   }
@@ -133,20 +148,28 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "array",
                 "description": "",
-                "minItems": 1,
-                "uniqueItems": true,
+                "type": "object",
                 "x-examples": {
-                  "example-1": [
-                    "1",
-                    "2",
-                    "3"
-                  ]
+                  "example-1": {
+                    "supermarkets": [
+                      "60845d5468c33834de710e19",
+                      "60848b9c504e7f1bb1feb73d"
+                    ]
+                  }
                 },
-                "items": {
-                  "type": "string"
-                }
+                "properties": {
+                  "data": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "required": [
+                  "data"
+                ]
               }
             }
           }

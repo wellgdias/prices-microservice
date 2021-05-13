@@ -4,8 +4,8 @@ import getPrices from '../business/rules/get-prices';
 const pricesRouter = Router();
 pricesRouter.get('/v1/prices', async (req, res, next) => {
   try {
-    const idSupermarkets = req.body;
-    const response = await getPrices(idSupermarkets);
+    const { data: supermarkets } = req.body;
+    const response = await getPrices(supermarkets);
     res.status(200).json(response);
     return next();
   } catch (error) {
