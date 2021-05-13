@@ -137,8 +137,8 @@
               }
             }
           },
-          "400": {
-            "$ref": "#/components/responses/BadRequestError"
+          "502": {
+            "$ref": "#/components/responses/ServiceError"
           }
         },
         "operationId": "get-prices",
